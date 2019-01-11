@@ -1,0 +1,49 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<body>
+
+<div class="header">
+  <a href="http://localhost:3000" class="logo">Student Details</a>
+  <div class="header-right">
+    <a class="active" href="http://localhost:3000"> Home</a>
+ <a href="http://localhost:3000/students/new">Insert</a>
+ <!--       <a href="#contact">Update</a>
+    <a href="#about">Delete</a> -->
+  </div>
+</div>
+<br>
+<div class = "search">
+<%= form_tag(students_path , method: :get ) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search' %>
+<% end %>
+</div> 
+ <br>
+
+<div class = "main">
+<button><%= link_to 'Add New Student', new_student_path %></button> <br>
+<br>
+<table border = "1">
+  <tr>
+    <th>Name</th>
+    
+  </tr>
+ 
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= link_to 'Show', student_path(student) %></td>
+      <td><%= link_to 'Edit', edit_student_path(student) %></td>
+      <td><%= link_to 'Delete', student_path(student),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<div class="footer">
+  <p>Footer</p>
+</div>

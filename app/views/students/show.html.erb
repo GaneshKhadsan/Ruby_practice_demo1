@@ -1,0 +1,37 @@
+<div class="header">
+  <a href="http://localhost:3000" class="logo">Student Details</a>
+  <div class="header-right">
+    <a class="active" href="http://localhost:3000"> Home</a>
+ <a href="http://localhost:3000/students/new">Insert</a>
+ <!--       <a href="#contact">Update</a>
+    <a href="#about">Delete</a> -->
+  </div>
+  </div>
+
+<table>
+  <tbody align ="left"><tr>
+    <th>Name:</th>
+    <td> <%= @student.name %> </td> <br>
+  </tr>
+    <tr>
+    <th>Email:</th>
+    <td> <%= @student.email %> </td> <br>
+  </tr>
+  <tr>
+    <th>Date of Birth:</th>
+    <td> <%= @student.dob %> </td> <br>
+  </tr>
+  <tr>
+    <th>Phone:</th>
+    <td> <%= @student.phone %> </td> <br>
+  </tr>
+  </tbody>
+  </table>
+  <br>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>    
+
+<div class="footer">
+  <p>Footer</p>
+</div>
